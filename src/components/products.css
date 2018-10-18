@@ -33,3 +33,7 @@ input:focus {
 .select {
   margin-right: 20px;
 }
+
+.productValue {
+  margin: 20px;
+}

@@ -38,7 +38,17 @@ class App extends Component {
   calculateTotal() {
     let value = 0;
     let order = this.state.order;
-    order.forEach((element) => value += element.value);
+
+    order.filter((product) => {
+      const query = this.state.query.toLowerCase();
+      return (
+        query.trim() == '' || 
+        product.description.toString().toLowerCase().includes(query) ||
+        product.value.toString().toLowerCase().includes(query)
+      );
+    }).map((product) => {                
+      return value += product.value;
+    });
     return value;
   }
 
